@@ -1,0 +1,47 @@
+{% extends 'common.html' %}
+
+{% block body %}
+{% if user.is_authenticated %}
+   <div class="container-fluid">
+   	<div class="row studnet_nav">
+   	             <div class="col-sm-8 flex-row">            
+						     <ul class="nav nav-pills flex-column flex-sm-row">
+								<!-- <li class="nav-item">
+									<a class="nav-link" href='{% url "teacher_home"%}'><img src="/static/css/image/logo.png"></a>
+								 </li>-->
+								  <li class="nav-item">
+								    <a class="nav-link active ml-2 btn-outline-dark" href='{% url "teacher_home"%}'>My Bookings</a>
+								  </li>
+								  <li class="nav-item">
+								    <a class="nav-link active ml-2 btn-success" href='{% url "teacher_appointment_list"%}'>Create Bookings</a>
+								  </li>
+							  </ul>	                             
+                  </div>
+
+                 <div class="col-sm-4 d-flex flex-row-reverse">
+					     <ul class="nav nav-pills">
+							  <!--<li class="nav-item">
+							    <p>Welcome </p> 
+							  </li>-->
+							  <li class="nav-item">
+							    <a class="nav-link active ml-2 btn-outline-light" href="#">{{user_name}}</a>
+							  </li>
+							  <li class="nav-item">
+							    <a class="nav-link active ml-2 btn-outline-warning" href='{% url "logout"%}'>Log Out</a>
+							  </li>
+						  </ul>	     
+	       		 </div>
+	  </div>
+    </div>
+	{% else %}
+	<h1>Please login to accesss this resource</h1>
+	{% endif %}
+    {% block common_teacher %}
+    
+    {% endblock common_teacher %}
+
+{% endblock %}
+
+
+
+

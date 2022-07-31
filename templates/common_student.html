@@ -1,0 +1,46 @@
+{% extends 'common.html' %}
+{% block body %}
+{% if user.is_authenticated %}
+   <div class="container-fluid">
+   	<div class="row studnet_nav">
+   	             <div class="col-sm-8 flex-row">            
+						     <ul class="nav nav-pills d-flex flex-column flex-sm-row">
+								  <li class="nav-item">
+								    <a class="nav-link active ml-2 btn-info" href='{% url "student"%}'>My Bookings</a>
+								  </li>
+								  <li class="nav-item">
+								    <a class="nav-link active ml-2 btn-success" href='{% url "quick_appointmnet"%}'>Get Bookings</a>
+								  </li>
+
+							  </ul>	                             
+                  </div>
+
+                 <div class="col-sm-4 d-flex flex-row-reverse">
+					     <ul class="nav nav-pills flex-column flex-sm-row">
+							  <!--<li class="nav-item">
+							    <p>Welcome </p> 
+							  </li>-->
+							  <li class="nav-item">
+							    <a class="nav-link active ml-2 btn-secondary" href="#">{{user_name}}</a>
+							  </li>
+							  <li class="nav-item">
+							    <a class="nav-link active ml-2 btn-warning" href='{% url "logout"%}'>Log Out</a>
+							  </li>
+						  </ul>	     
+	       		 </div>
+	  </div>
+    </div>
+	{% else %}
+	<h1>Please login to accesss this resource</h1>
+	{% endif %}
+
+    {% block common_student %}
+    
+    {% endblock common_student %}
+
+{% endblock %}
+
+
+
+
+

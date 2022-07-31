@@ -1,0 +1,5 @@
+<option value="">---------</option>
+{% for procedure in procedures %}
+<option value="{{ procedure.pk }}">{{ procedure.name }}</option>
+{% endfor %}
+</label>

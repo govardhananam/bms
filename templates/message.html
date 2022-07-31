@@ -1,0 +1,31 @@
+
+<link rel="stylesheet" href="https://toert.github.io/Isolated-Bootstrap/versions/4.0.0-beta/iso_bootstrap4.0.0min.css">
+<div class="bootstrap">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+{% for message in messages %}
+
+  <div class="alert {{ message.tags }} alert-dismissible message" role="alert" >
+   
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close" style="float: right;">
+      <span class="del-msg" aria-hidden="true">&times;</span>
+    </button>
+    {{ message }}
+  </div>
+{% endfor %}
+</div>
+
+<script>
+  $(document).ready(function() {
+      // messages timeout for 10 sec 
+      setTimeout(function() {
+          $('.message').fadeOut('slow');
+      }, 1000); // <-- time in milliseconds, 1000 =  1 sec
+
+      // delete message
+      $('body').on('click','.del-msg', function(){
+          $('.del-msg').parent().attr('style', 'display:none;');
+      })
+  });
+</script>

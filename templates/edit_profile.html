@@ -1,0 +1,13 @@
+{% extends 'common_student.html' %}
+
+{% block common_student %}
+  {% if user.is_authenticated %}
+
+
+
+
+
+  {% else %}
+  <h1>Please login to access this resource</h1>
+  {% endif %}
+{% endblock common_student %}
